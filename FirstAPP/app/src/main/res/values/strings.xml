@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FirstAPP</string>
+    <string name="hello1">Hola </string>
+    <string name="hello2">! que tal el dia? </string>
+</resources>
