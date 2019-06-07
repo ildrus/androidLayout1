@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,15 +20,17 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
     TextView textView;
     String name;
+    CheckBox checkBox;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         editText=findViewById(R.id.editText);
         textView = findViewById(R.id.textView1);
-        name= editText.getText().toString();
+        checkBox=findViewById(R.id.checkBox);
 
 
         createPerson();
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         personList.add(p);
         getAllPersonsA();
         showInterCalation();
-       //primo(12,1,0);
+        //primo(9,2,0);
 
     }
 
@@ -143,12 +146,12 @@ public class MainActivity extends AppCompatActivity {
             cont += 1;
         }
     }
-/*
-   public void primo(int years,int valor,int count){
+
+  /* public void primo(int years,int valor,int count){
        int valor1=valor,years1=years,count1=count;
 
-       if(valor1>years1){
-           if(count1==1){
+       if(valor1>(years1-1)){
+           if(count1==0){
                Log.v("firstapp", "its primo");
            }
            else{
@@ -158,8 +161,8 @@ public class MainActivity extends AppCompatActivity {
        else{
            int result=years1%valor1;
            if(result==0){
-               valor1+=1;
                count1+=1;
+               valor1+=1;
                primo(years1,valor1,count1);
            }
            else{
@@ -170,13 +173,20 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
     public void acept(View view){
-        if(!name.equals("")) {
-            textView.setText(getString(R.string.hello1) + " " + name + getString(R.string.hello2));
+        name= editText.getText().toString();
+
+            if(!name.equals("")) {
+                if(checkBox.isChecked()){
+                    textView.setText(getString(R.string.hello1) + " " + name + getString(R.string.hello2)+" "+ getString(R.string.isCheck));
+                }
+                else{
+                    textView.setText(getString(R.string.hello1) + " " + name + getString(R.string.hello2)+" "+ getString(R.string.noCheck));
+                }
+            }
+            else{
+                textView.setText(getString(R.string.errorName));
+            }
         }
-        else{
-            textView.setText("");
-        }
-    }
 
     public void cancel(View view){
         textView.setText("");

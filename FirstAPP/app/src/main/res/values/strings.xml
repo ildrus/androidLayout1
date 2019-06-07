@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">FirstAPP</string>
-    <string name="hello1">Hola </string>
-    <string name="hello2">! que tal el dia? </string>
+    <string name="hello1">Hola</string>
+    <string name="hello2">! que tal el dia?</string>
+    <string name="noCheck">its not checked!!!</string>
+    <string name="isCheck">its checked^^</string>
+    <string name="errorName">Please introduce a NAME!!!</string>
 </resources>
